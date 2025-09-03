@@ -1,0 +1,14 @@
+# 测试环境配置
+test:
+  THREAD_DELAY: 1
+  DEBUG: true
+  DICT_MAIL_TO_USERS:
+    '测试': '你的邮箱'
+  TIP_MSG:
+# 正式环境配置
+prod:
+  THREAD_DELAY: 60
+  DEBUG: false
+  DICT_MAIL_TO_USERS:
+    '测试': '你的邮箱'
+  TIP_MSG:

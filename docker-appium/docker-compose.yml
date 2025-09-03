@@ -1,0 +1,24 @@
+version: '3.3'
+
+services:
+
+  appium-container:
+    image: appium/appium:v1.22.3-p6
+    container_name: appium-container
+    privileged: true
+    restart: always
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - "/usr/share/zoneinfo/Asia/Shanghai:/etc/localtime" #设置系统时区
+      - "/usr/share/zoneinfo/Asia/Shanghai:/etc/timezone"  #设置时区
+      - "./apk_pack:/apk_pack"
+    ports:
+      - "4723:4723"
+    environment:
+      - TZ=Asia/Shanghai
+    networks:
+      home_net: #你自己的docker网络名称 docker network ls 查看 docker network add xxx home_net 创建
+#        ipv4_address: 18.0.0.8  #指定IP地址 (可选)
+networks:
+ home_net:
+   external: true

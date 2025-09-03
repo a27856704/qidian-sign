@@ -1,0 +1,18 @@
+version: '3'
+services:
+  python3:
+    image: python:3.12
+    restart: always  # 代表只要docker启动，那么这个容器就跟着一起启动:wq
+    working_dir: /usr/src/luciferApp
+    volumes:
+      - ./luciferApp:/usr/src/luciferApp
+      - /etc/localtime:/etc/localtime
+      - ./site-packages:/usr/local/lib/python3.12/site-packages
+      - ./sources.list:/etc/apt/sources.list
+    container_name: python3.12
+    command: ["/bin/sh", "-c", "/usr/src/luciferApp/start.sh"]
+    networks:
+      home_net:
+networks:
+ home_net:
+   external: true

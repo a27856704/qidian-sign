@@ -1,0 +1,6 @@
+Appium-Python-Client==4.0.0
+beautifulsoup4~=4.13.3
+charset-normalizer==3.3.2
+click==8.1.7
+Django==4.2.10
+schedule==1.2.0
